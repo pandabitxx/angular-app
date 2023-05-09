@@ -4,6 +4,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatTableModule} from '@angular/material/table';
 import { RouterModule } from '@angular/router';
+import { NavbarComponent } from 'src/app/common/navbar/navbar.component';
+import { ToolbarComponent } from 'src/app/common/toolbar/toolbar.component';
 
 export interface PeriodicElement {
   name: string;
@@ -34,7 +36,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatCheckboxModule,
     MatInputModule,
     MatTableModule,
-    RouterModule
+    RouterModule,
+    NavbarComponent,
+    ToolbarComponent,
+
   ],
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']

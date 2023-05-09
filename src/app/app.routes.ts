@@ -2,14 +2,12 @@ import {RouterModule, Routes} from "@angular/router";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ModuleWithProviders } from "@angular/core";
 import { UserListComponent } from "./pages/users/user-list/user-list.component";
-import { LoginComponent } from "./pages/login/layout/login.component";
-import { HomeComponent } from "./pages/layout/home/home.component";
+import { LoginComponent } from "./pages/layout/login/login.component";
 
 export const appRoutes: Routes = [
     {path: '', component:  LoginComponent},
-    // {path: 'list', component:  UserListComponent},
-    // {path: 'form', component:  UserFormComponent},
-    {path: 'home', component:  HomeComponent},
+    {path: 'list', component:  UserListComponent},
+    {path: 'form', component:  UserFormComponent},
 
     {
     path: 'list',
