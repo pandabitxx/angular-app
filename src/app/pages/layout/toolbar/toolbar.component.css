@@ -1,0 +1,10 @@
+.toolbar {
+    padding-top: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: rgb(255, 255, 255); 
+    
+}
+.text-toolbar {
+    color: aliceblue;
+}
