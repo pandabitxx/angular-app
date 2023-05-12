@@ -1,0 +1,71 @@
+<!-- Main -->
+<div class="container">
+    <div class="row">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <app-toolbar></app-toolbar>
+        </div>
+        <div class="col-9">
+
+            <main id="contacto-formulario">
+                <div class="container fuente" data-aos="fade-up">
+                    <div class="row">
+                        <div class="col d-flex align-items-center justify-content-md-start">
+                            <h1 class="mb-3">
+                                ¡Hola!
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex align-items-center justify-content-md-center">
+                            <p class="mb-4 ms-5 me-5">
+                                Gracias por tu interés en nuestro producto/servicio. Para obtener 
+                                más información, te invitamos a llenar nuestro formulario de solicitud 
+                                de información adicional. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1 contact rounded-2">
+                            <form #formContacto="ngForm" (ngSubmit)="onSubmit()">
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label p">Nombre</label>
+                                    <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="usuario.nombre" required pattern="[a-zA-Z]+"
+                                    class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                                    <span  *ngIf="nombre.touched && !nombre.valid">
+                                        El nombre es obligatorio
+                                    </span>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="apellidos" class="form-label p">Apellidos</label>
+                                    <input type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="usuario.apellidos" required pattern="[a-zA-Z]+" 
+                                    class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                    <span  *ngIf="apellidos.touched && !apellidos.valid">
+                                        Los Apellidos son obligatorios 
+                                    </span>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label p">Correo electrónico</label>
+                                    <input type="text" name="email" #email="ngModel" [(ngModel)]="usuario.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
+                                    required/>
+                                    <span  *ngIf="email.touched && !email.valid">
+                                        El email no es valido 
+                                    </span>
+                                </div>
+                                <button type="submit" value="Enviar" [disabled]="!formContacto.form.valid" class="btn btn-primary" data-aos="fade-left">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- /Main -->
+
+        </div>
+    </div>
+</div>
+
+
+
+

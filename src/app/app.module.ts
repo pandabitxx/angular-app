@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { UsersRoutingModule } from './components/users/users.routes';
 
 
 // Componentes
@@ -24,13 +25,16 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { RecoverPasswordComponent } from './components/recover-password/recover-password.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { VerifyUserComponent } from './components/verify-user/verify-user.component';
-import { NavbarComponent } from './components/dashboard/layout//navbar/navbar.component';
-import { ToolbarComponent } from './components/dashboard/layout/toolbar/toolbar.component';
-import { UserListComponent } from './components/dashboard/users/user-list/user-list.component';
-import { UserFormComponent } from './components/dashboard/users/user-form/user-form.component';
-import { UserEditComponent } from './components/dashboard/users/user-edit/user-edit.component';
+import { NavbarComponent } from './components/layout//navbar/navbar.component';
+import { ToolbarComponent } from './components/layout/toolbar/toolbar.component';
+import { UserListComponent } from './components/users/user-list/user-list.component';
+import { UserFormComponent } from './components/users/user-form/user-form.component';
+import { UserEditComponent } from './components/users/user-edit/user-edit.component';
 
 import { environment } from 'src/environments/environment';
+
+
+
 
 
 @NgModule({
@@ -63,6 +67,7 @@ import { environment } from 'src/environments/environment';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    UsersRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
