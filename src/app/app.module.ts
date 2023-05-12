@@ -30,8 +30,11 @@ import { ToolbarComponent } from './components/layout/toolbar/toolbar.component'
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import { UserFormComponent } from './components/users/user-form/user-form.component';
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
+import { UserDeleteComponent } from './components/users/user-delete/user-delete.component';
+import { UserAddComponent } from './components/users/user-add/user-add.component';
 
 import { environment } from 'src/environments/environment';
+
 
 
 
@@ -50,6 +53,8 @@ import { environment } from 'src/environments/environment';
     UserListComponent,
     UserFormComponent,
     UserEditComponent,
+    UserDeleteComponent,
+    UserAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,7 @@ import { environment } from 'src/environments/environment';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,7 +6,6 @@ import { RegisterUserComponent } from './components/register-user/register-user.
 import { VerifyUserComponent } from './components/verify-user/verify-user.component';
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import { UserFormComponent } from './components/users/user-form/user-form.component';
-import { UsersRoutingModule } from './components/users/users.routes';
 
 export const appRoutes: Routes = [
 
@@ -30,8 +29,6 @@ export const appRoutes: Routes = [
     loadChildren: () =>
       import('./components/users/users.routes').then((routes) => routes.UsersRoutes)
   },
-  
-
 ];
 
 @NgModule({
