@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
     private afAuth: AngularFireAuth,
     private toastr: ToastrService,
     private router: Router,
-    private firebaseError: FirebaseCodeErrorService
+    private firebaseError: FirebaseCodeErrorService,
+    //private cookieService: CookieService,
   ) {
     this.loginUsuario = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -37,6 +38,8 @@ export class LoginComponent implements OnInit {
     this.afAuth.signInWithEmailAndPassword(email, password).then((user) => {
       if(user.user?.emailVerified) {
         this.router.navigate(['/dashboard']);
+        console.log('Ingreso con Éxito');
+        //this.cookieService.set
       } else {
         this.router.navigate(['/verificar-correo']);
       }

@@ -7,6 +7,11 @@ import { VerifyUserComponent } from './components/verify-user/verify-user.compon
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import { UserFormComponent } from './components/users/user-form/user-form.component';
 
+
+
+//Servicio 
+import { AuthGuard } from './guards/auth.guard';
+
 export const appRoutes: Routes = [
 
   //Login Buttons
@@ -17,7 +22,8 @@ export const appRoutes: Routes = [
   { path: 'recuperar-password', component: RecoverPasswordComponent },
 
   //Toolbal Buttons
-  { path: 'dashboard', component: UserListComponent },
+  //{ path: 'dashboard', component: UserListComponent, canActivate:[AuthGuard]},
+  { path: 'dashboard', component: UserListComponent},
   { path: 'formulario-contacto', component: UserFormComponent },
   { path: 'salir', redirectTo: 'login', pathMatch: 'full' },
   //{ path: '**', redirectTo: 'login', pathMatch: 'full' },
@@ -36,3 +42,4 @@ export const appRoutes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
