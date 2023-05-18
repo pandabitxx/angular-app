@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 // Modulos
 import { AppRoutingModule } from './app-routing.module';
+
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +18,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { UsersRoutingModule } from './components/users/users.routes';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {  MatPaginatorModule } from '@angular/material/paginator';
+import {  MatSortModule } from '@angular/material/sort';
+//import { StudentAddEditComponent } from './student-add-edit/student-add-edit.component';
+
+
+
 
 
 // Componentes
@@ -34,6 +50,7 @@ import { UserDeleteComponent } from './components/users/user-delete/user-delete.
 import { UserAddComponent } from './components/users/user-add/user-add.component';
 
 import { environment } from 'src/environments/environment';
+import { UserAddFormComponent } from './components/users/user-add-form/user-add-form.component';
 
 
 
@@ -55,6 +72,7 @@ import { environment } from 'src/environments/environment';
     UserEditComponent,
     UserDeleteComponent,
     UserAddComponent,
+    UserAddFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +91,16 @@ import { environment } from 'src/environments/environment';
     MatIconModule,
     MatButtonModule,
     UsersRoutingModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

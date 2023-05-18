@@ -1,0 +1,97 @@
+<div mat-dialog-title>    
+    <h1>Formulario Agregar Estudiante</h1>
+</div>
+<form [formGroup]="stdForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <div class="col ">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" placeholder="Ex. Nombre" formControlName="firstName">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput type="text" placeholder="Ex. Apellido" formControlName="lastName">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col ">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" placeholder="Ex. 123@gmail.com" formControlName="email">
+                </mat-form-field>
+            </div>
+            <div class="col ">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Fecha de Ingreso</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="date">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <mat-radio-group aria-label="Select an option" formControlName="gender">
+                    <mat-label><b>Genero</b></mat-label>
+                    <mat-radio-button value="Hombre">Hombre</mat-radio-button>
+                    <mat-radio-button value="Mujer">Mujer</mat-radio-button>
+                    <mat-radio-button value="Otros">Otros</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Nivel Educativo</mat-label>
+                    <mat-select formControlName="education">
+                        <mat-option *ngFor="let val of education" [value]="val">
+                            {{val}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <div class="col">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Compañia</mat-label>
+                        <input matInput type="text" placeholder="Ex. Google" formControlName="company">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Experiencia</mat-label>
+                    <input matInput type="number" placeholder="Ex. 2 Años" formControlName="experience">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Salario</mat-label>
+                    <input matInput type="number" placeholder="Ex. $1.000.000" formControlName="salary">
+                    <mat-hint>En pesos Colombianos</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-4">
+        <div class="action">
+            <div class="row mb-3">
+                <div class="col ps-4">
+                    <button type="button" [mat-dialog-close]="false" class="btn btn-secondary w-100">Cancelar</button>
+                </div>
+                <div class="col pe-4">
+                    <button type="submit" class="btn btn-primary w-100">{{data ? 'Actualizar': 'Añadir'}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

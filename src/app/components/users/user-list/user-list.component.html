@@ -3,44 +3,116 @@
         <app-navbar></app-navbar>
     </div>
     <div class="row">
-        <div class="col-3">
+        <div class="col-1">
             <app-toolbar></app-toolbar>
         </div>
-        <div class="col-9">
+        <div class="col">
+            <!-- Inicio -->
+            <!-- <mat-toolbar color="primary">
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <span>ABM</span>
+                <span class="example-spacer"></span>
+                <button mat-raised-button (click)="openAddEditForm()">
+                    Agragrar Estudiante
+                </button>
+            </mat-toolbar> -->
             
-            <div>
-                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-            
-                    <!--- Note that these columns can be defined in any order.
-                        The actual rendered columns are set as a property on the row definition" -->
-                
-                    <!-- Position Column -->
-                    <ng-container matColumnDef="position">
-                      <th mat-header-cell *matHeaderCellDef> No. </th>
-                      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            <mat-form-field class="mt-4">
+                <mat-label>Bucar</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+            </mat-form-field>
+        
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort>
+        
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
                     </ng-container>
-                
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="name">
-                      <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="firstName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                    <td mat-cell *matCellDef="let row"> {{row.firstName}} </td>
                     </ng-container>
-                
-                    <!-- Weight Column -->
-                    <ng-container matColumnDef="weight">
-                      <th mat-header-cell *matHeaderCellDef> Curso </th>
-                      <td mat-cell *matCellDef="let element"> {{element.course}} </td>
+        
+                    <!-- Progress Column -->
+                    <ng-container matColumnDef="lastName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </th>
+                    <td mat-cell *matCellDef="let row"> {{row.lastName}}</td>
                     </ng-container>
-                
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="symbol">
-                      <th mat-header-cell *matHeaderCellDef> Estado </th>
-                      <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+        
+                    <!-- Progress Column -->
+                    <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                    <td mat-cell *matCellDef="let row"> {{row.email}}</td>
                     </ng-container>
-                
+        
+                    <!-- Progress Column -->
+                    <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+                    <td mat-cell *matCellDef="let row"> {{row.date | date}}</td>
+                    </ng-container>
+        
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="gender">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Genero </th>
+                    <td mat-cell *matCellDef="let row"> {{row.gender}} </td>
+                    </ng-container>
+        
+                    <!-- Progress Column -->
+                    <ng-container matColumnDef="education">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Educación </th>
+                    <td mat-cell *matCellDef="let row"> {{row.education}}</td>
+                    </ng-container>
+        
+                    <!-- Progress Column -->
+                    <ng-container matColumnDef="company">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Empresa </th>
+                    <td mat-cell *matCellDef="let row"> {{row.company}}</td>
+                    </ng-container>
+        
+                    <!-- Progress Column -->
+                    <ng-container matColumnDef="experience">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Experiencia </th>
+                    <td mat-cell *matCellDef="let row"> {{row.experience}}</td>
+                    </ng-container>
+        
+                    <!-- Progress Column -->
+                    <ng-container matColumnDef="salary">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Salario </th>
+                    <td mat-cell *matCellDef="let row"> {{row.salary | currency}}</td>
+                    </ng-container>
+        
+                    <!-- Progress Column -->
+                    <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> action </th>
+                    <td mat-cell *matCellDef="let row"> 
+                        <button mat-icon-button color="primary" (click)="openEditForm(row)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn" (click)="deleteStudents(row.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                    </ng-container>
+        
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                </table> 
+        
+                    <!-- Row shown when there is no matching data. -->
+                    <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+            </div>
+            
+            <!-- Fin -->
+            <div>
                 <div class="row mt-3">
                     <div class="col">
                         <a class="text-toolbar d-flex justify-content-end" [routerLink]="['/delete']">
@@ -57,7 +129,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a class="text-toolbar d-flex justify-content-end" [routerLink]="['/add']">
+                        <a class="text-toolbar d-flex justify-content-end" (click)="openAddEditForm()">
                         <button type="button" class="btn btn-success mb-2 w-100">
                             Agregar Usurio
                         </button>
@@ -65,6 +137,7 @@
                     </div>
                 </div>
             </div>
+            <app-toolbar></app-toolbar>
 
         </div>
     </div>

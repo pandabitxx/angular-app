@@ -1,38 +1,98 @@
-import { Component, NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NavbarComponent } from '../../layout/navbar/navbar.component';
-import { ToolbarComponent } from '../../layout/toolbar/toolbar.component';
-import { AppModule } from 'src/app/app.module';
-
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  course: string;
-  state: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Ana', course: 'Matemáticas', state: 'Inscrita'},
-  {position: 2, name: 'Juan', course: 'Física', state: 'Aprobado'},
-  {position: 3, name: 'María', course: 'Química', state: 'Reprobado'},
-  {position: 4, name: 'Pedro', course: 'Biología', state: 'Inscrito'},
-  {position: 5, name: 'Luisa', course: 'Programación', state: 'Aprobada'},
-  {position: 6, name: 'Carlos', course: 'Historia', state: 'Retirado'},
-  {position: 7, name: 'Miguel', course: 'Inglés', state: 'Inscrito'},
-  {position: 8, name: 'Isabel', course: 'Español', state: 'Aprobado'},
-  {position: 9, name: 'Fernando', course: 'Arte', state: 'Inscrito'},
-  {position: 10, name: 'Laura', course: 'Música', state: 'Aprobada'},
-];
-
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { UserAddFormComponent } from '../user-add-form/user-add-form.component';
+import { StudentsService } from '../../../services/students.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { CoreService } from '../../../core/core.service';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
 })
+export class UserListComponent implements OnInit {
+  displayedColumns: string[] = [
+    'id', 
+    'firstName', 
+    'lastName', 
+    'email',
+    'date',
+    'gender',
+    'education',
+    'company',
+    'experience',
+    'salary',
+    'action'
+  ];
+  dataSource!: MatTableDataSource<any>;
 
-export class UserListComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  constructor(
+    private _dialog: MatDialog,
+    private  _stdService: StudentsService,
+    private _coreService: CoreService
+  ) {}
+
+  ngOnInit(): void {
+    this.getStudentlist();
+  }
+
+  openAddEditForm() {
+    const dialogRef = this._dialog.open(UserAddFormComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getStudentlist();
+        }
+      },
+    });
+  }
+
+  getStudentlist() {
+    this._stdService.getStudentlist().subscribe({
+      next: (res) => {
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      },
+      error: console.log,
+    });
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  deleteStudents(id: number) {
+    this._stdService.deleteStudents(id).subscribe({
+      next: (res) => {
+        this._coreService.openSnackBar('Estudiante Eliminado!', 'done');
+        this.getStudentlist();
+      },
+      error: console.log,
+    })
+  }
+
+  openEditForm(data: any) {
+    const dialogRef = this._dialog.open(UserAddFormComponent, {
+      data,
+    });
+
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getStudentlist();
+        }
+      },
+    });
+  }
 }
