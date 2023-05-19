@@ -26,7 +26,7 @@ export const appRoutes: Routes = [
   { path: 'dashboard', component: UserListComponent},
   { path: 'formulario-contacto', component: UserFormComponent },
   { path: 'salir', redirectTo: 'login', pathMatch: 'full' },
-  //{ path: '**', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' },
 
   //dashboard Buttons
   //lazyLoading

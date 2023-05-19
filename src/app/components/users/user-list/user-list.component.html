@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container-1">
     <div class="row">
         <app-navbar></app-navbar>
     </div>
     <div class="row">
-        <div class="col-1">
+        <!-- <div class="col-1">
             <app-toolbar></app-toolbar>
-        </div>
+        </div> -->
         <div class="col">
             <!-- Inicio -->
             <!-- <mat-toolbar color="primary">
@@ -20,7 +20,7 @@
             </mat-toolbar> -->
             
             <mat-form-field class="mt-4">
-                <mat-label>Bucar</mat-label>
+                <mat-label>Buscar</mat-label>
                 <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
             </mat-form-field>
         
@@ -115,23 +115,9 @@
             <div>
                 <div class="row mt-3">
                     <div class="col">
-                        <a class="text-toolbar d-flex justify-content-end" [routerLink]="['/delete']">
-                        <button type="button" class="btn btn-danger mb-2 w-100">
-                            Eliminar Usuario
-                        </button>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a class="text-toolbar d-flex justify-content-end" [routerLink]="['/edit']">
-                        <button type="button" class="btn btn-primary mb-2 w-100">
-                            Editar Usurio
-                        </button>
-                        </a>
-                    </div>
-                    <div class="col">
                         <a class="text-toolbar d-flex justify-content-end" (click)="openAddEditForm()">
-                        <button type="button" class="btn btn-success mb-2 w-100">
-                            Agregar Usurio
+                        <button type="button" class="btn btn-success mb-2 w-30">
+                            Agregar Usuario
                         </button>
                         </a>
                     </div>

@@ -1,0 +1,105 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "student": [
+    {
+      "firstName": "Javier",
+      "lastName": "Gonzalez",
+      "email": "anderson@gmail.com",
+      "date": "2023-05-18T05:00:00.000Z",
+      "gender": "Hombre",
+      "education": "Profesional",
+      "company": "Banco Popular ",
+      "experience": 1,
+      "salary": 1000000,
+      "id": 1
+    },
+    {
+      "firstName": "Javier",
+      "lastName": "Gonzalez",
+      "email": "anderson@gmail.com",
+      "date": "2023-05-18T05:00:00.000Z",
+      "gender": "Hombre",
+      "education": "Profesional",
+      "company": "Banco Popular ",
+      "experience": 1,
+      "salary": 1000000,
+      "id": 1
+    },
+    {
+      "firstName": "María",
+      "lastName": "López",
+      "email": "maria.lopez@example.com",
+      "date": "1990-12-15T05:00:00.000Z",
+      "gender": "Mujer",
+      "education": "Universitaria",
+      "company": "Google",
+      "experience": 5,
+      "salary": 1500000,
+      "id": 2
+    },
+    {
+      "firstName": "Carlos",
+      "lastName": "Martínez",
+      "email": "carlos.martinez@example.com",
+      "date": "1985-07-20T05:00:00.000Z",
+      "gender": "Hombre",
+      "education": "Secundaria",
+      "company": "Microsoft",
+      "experience": 3,
+      "salary": 1200000,
+      "id": 3
+    },
+    {
+      "firstName": "Laura",
+      "lastName": "García",
+      "email": "laura.garcia@example.com",
+      "date": "1992-04-10T05:00:00.000Z",
+      "gender": "Mujer",
+      "education": "Profesional",
+      "company": "Apple",
+      "experience": 6,
+      "salary": 1800000,
+      "id": 4
+    },
+    {
+      "firstName": "Pedro",
+      "lastName": "Ramírez",
+      "email": "pedro.ramirez@example.com",
+      "date": "1988-09-03T05:00:00.000Z",
+      "gender": "Hombre",
+      "education": "Técnica",
+      "company": "Amazon",
+      "experience": 2,
+      "salary": 1000000,
+      "id": 5
+    },
+    {
+      "firstName": "Ana",
+      "lastName": "Sánchez",
+      "email": "ana.sanchez@example.com",
+      "date": "1995-11-25T05:00:00.000Z",
+      "gender": "Mujer",
+      "education": "Universitaria",
+      "company": "Facebook",
+      "experience": 4,
+      "salary": 1400000,
+      "id": 6
+    }
+  ]
+}
