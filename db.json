@@ -22,11 +22,11 @@
       "lastName": "Gonzalez",
       "email": "anderson@gmail.com",
       "date": "2023-05-18T05:00:00.000Z",
-      "gender": "Hombre",
+      "gender": "Otros",
       "education": "Profesional",
       "company": "Banco Popular ",
       "experience": 1,
-      "salary": 1000000,
+      "salary": 1100000,
       "id": 1
     },
     {
@@ -88,18 +88,6 @@
       "experience": 2,
       "salary": 1000000,
       "id": 5
-    },
-    {
-      "firstName": "Ana",
-      "lastName": "Sánchez",
-      "email": "ana.sanchez@example.com",
-      "date": "1995-11-25T05:00:00.000Z",
-      "gender": "Mujer",
-      "education": "Universitaria",
-      "company": "Facebook",
-      "experience": 4,
-      "salary": 1400000,
-      "id": 6
     }
   ]
 }
